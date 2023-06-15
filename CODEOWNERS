@@ -1,0 +1,8 @@
+# For the main branch
+/docs/ @Sivakrishna3a @username2
+
+# For the development branch
+/src/ @username3
+
+# For the feature branch
+/src/features/ @username4
