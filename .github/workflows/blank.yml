@@ -1,48 +1,27 @@
-name: Python package
+name: Test
 
 on:
-
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-    branches:
-
-      - main
-
-      - qa
-
-      - develop
-
+  # Allows running this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-
+  # Contains a single job called "build"
   build:
-
-    environment:
-
-      name: Development
-
     runs-on: ubuntu-latest
+    steps:
+      # Checks out repository under $GITHUB_WORKSPACE, so job can access it
+      - uses: actions/checkout@v2
 
+      - name: Run a one-line script
+        run: echo Hello, world!
 
-
-steps:
-
-  - uses: actions/checkout@v3
-
-    with:
-
-      fetch-depth: 0 # Required due to the way Git works, without it this action won't be able to find any or the correct tags
-
-
-  - name: Set up Python 3.7
-
-    uses: actions/setup-python@v4
-
-    with:
-
-      python-version: "3.7"
-
-
-  - name: DisplayPythonversion
-
-    run: python -c "import sys; print(sys.version)"
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
