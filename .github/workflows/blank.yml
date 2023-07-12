@@ -24,7 +24,7 @@ jobs:
 
       - name: Run a multi-line script
         run: |
+          ${{ secrets.NAME }},
           echo Add other actions to build,
-          ${{ secrets.NAME }}
           echo test, and deploy your project.
            
